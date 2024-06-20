@@ -1,10 +1,13 @@
+using Code.UI;
 using UnityEngine;
 
-public class EntryPoint : MonoBehaviour
+namespace Code
 {
-    public void Start()
+    public class EntryPoint : MonoBehaviour
     {
-        BaseWindow.Get<MainWindow>().Show();
+        public void Start()
+        {
+            BaseWindow.Get<MainWindow>().Show();
+        }
     }
-    
 }

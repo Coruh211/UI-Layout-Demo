@@ -1,32 +1,35 @@
 using UnityEngine;
 
-public abstract class BaseWindow : MonoBehaviour
+namespace Code.UI
 {
-    public static TWindow Get<TWindow>() where TWindow : BaseWindow
+    public abstract class BaseWindow : MonoBehaviour
     {
-        return FindObjectOfType<TWindow>(true);
-    }
+        public static TWindow Get<TWindow>() where TWindow : BaseWindow
+        {
+            return FindObjectOfType<TWindow>(true);
+        }
         
     
-    protected virtual void Awake()
-    {
-        gameObject.SetActive(false);
-    }
+        protected virtual void Awake()
+        {
+            gameObject.SetActive(false);
+        }
 
-    public void Show(params object[] args)
-    {
-        gameObject.SetActive(true);
+        public void Show(params object[] args)
+        {
+            gameObject.SetActive(true);
         
-        OnShow(args);
-    }
+            OnShow(args);
+        }
     
-    public void Hide()
-    {
-        OnHide();
+        public void Hide()
+        {
+            OnHide();
         
-        gameObject.SetActive(false);
-    }
+            gameObject.SetActive(false);
+        }
 
-    protected abstract void OnShow(object[] args);
-    protected abstract void OnHide();
+        protected abstract void OnShow(object[] args);
+        protected abstract void OnHide();
+    }
 }

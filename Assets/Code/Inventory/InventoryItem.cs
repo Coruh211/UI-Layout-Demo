@@ -4,9 +4,9 @@ namespace Code.Inventory
 {
     public class InventoryItem
     {
-        public string Title;
-        public string Description;
-        public Sprite Icon;
+        public readonly string Title;
+        public readonly string Description;
+        public readonly Sprite Icon;
 
         public InventoryItem(string title, string description, Sprite icon)
         {
