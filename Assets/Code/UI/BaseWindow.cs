@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Code.UI
@@ -28,7 +29,6 @@ namespace Code.UI
         
             gameObject.SetActive(false);
         }
-
         protected abstract void OnShow(object[] args);
         protected abstract void OnHide();
     }

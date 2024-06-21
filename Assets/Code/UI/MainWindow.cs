@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using Code.Inventory;
 using Code.UI.RewardLogic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace Code.UI
 {
@@ -45,7 +45,7 @@ namespace Code.UI
 аудио видео услуги, 
 Дизайнерская / проектная деятельность 
 и так далее"
-                : $"#{index} Short Description";
+                : $"#{index} Short Description ";
         }
 
         private void Inventory1()
