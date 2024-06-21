@@ -19,6 +19,7 @@ namespace Code.UI.RewardLogic
         [SerializeField] private RewardCell rewardCellPrefab;
         [SerializeField] private RectTransform scrollViewContent;
         [SerializeField] private RectTransform scrollContainer;
+        [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private RectTransform freeContainer;
         [Header("ToolTip")]
         [SerializeField] private float longPressTime = 1f;
@@ -73,11 +74,13 @@ namespace Code.UI.RewardLogic
                 _tooltipWindow = Get<TooltipWindow>();
             }
             
+            scrollRect.enabled = false;
             _tooltipWindow.Show(targetItem);
         }
         
         public void HideTooltip()
         {
+            scrollRect.enabled = true;
             _tooltipWindow.Hide();
         }
         
@@ -85,5 +88,7 @@ namespace Code.UI.RewardLogic
         {
             DesawnCells();
         }
+
+        
     }
 }

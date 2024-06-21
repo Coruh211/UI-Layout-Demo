@@ -1,6 +1,9 @@
-﻿using Code.Inventory;
+﻿using System;
+using Code.Inventory;
+using Code.UI.RewardLogic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Code.UI.TooltipLogic
@@ -18,7 +21,8 @@ namespace Code.UI.TooltipLogic
         
         private InventoryItem _currentItem;
         private InventoryItem _lastItem;
-        
+        private RewardsWindow _rewardWindow;
+
         protected override void OnShow(object[] args)
         {
             _lastItem = _currentItem;
@@ -31,6 +35,19 @@ namespace Code.UI.TooltipLogic
             
             SetInformation();
             ResizeWindow();
+        }
+        
+        private void Update()
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (_rewardWindow == null)
+                {
+                    _rewardWindow = Get<RewardsWindow>();
+                }
+                
+                _rewardWindow.HideTooltip();
+            }
         }
 
         private void ResizeWindow()
